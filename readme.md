@@ -24,9 +24,11 @@ Visão geral do projeto, um pouco das tecnologias usadas.
 - [Express](https://expressjs.com/pt-br/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Yup](https://www.npmjs.com/package/yup)
+- [Styled-Components](https://styled-components.com/)
+- [React-Hook-Form](https://react-hook-form.com/)
 
 A URL base da aplicação:
-https://
+https://localhost:3001
 
 ---
 
@@ -50,16 +52,15 @@ Clone o projeto em sua máquina e instale as dependências com o comando:
 yarn install
 ```
 
-- Para rodar a aplicação use o comando:
+- Para rodar a api use o comando:
 
 ```shell
-yarn dev
+yarn dev 
 ```
-
-- Para rodar testes use o comando:
+- Para rodar o React use o comando:
 
 ```shell
-yarn test
+yarn start
 ```
 
 ## 4 - Variáveis de Ambiente
