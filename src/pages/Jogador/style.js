@@ -45,6 +45,10 @@ export const Div = styled.div`
     color: var(--color-grey1);
     font-size: 12px;
   }
+  .title1{
+    font-size: 25px;
+    text-align:center;
+  }
 
   @media (max-width: 700px) {
     h1 {

@@ -7,8 +7,8 @@ import { Time } from "../pages/Time";
 const RoutesMain = () => (
   <Routes>
     <Route path="/" element={<LandingPage/>}/>
-    <Route path="/jogador" element={<Jogador />} />
-    <Route path="/time" element={<Time />} />
+    <Route path="/jogadores" element={<Jogador />} />
+    <Route path="/times" element={<Time />} />
   </Routes>
 );
 

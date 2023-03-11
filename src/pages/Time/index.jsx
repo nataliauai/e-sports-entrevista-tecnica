@@ -2,11 +2,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Forms } from "../../components/Forms";
 import { Link } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
 import { DivTeam } from "./style";
 import { schema } from "./schema";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 
-export const Time = () => {
+export const Time = ({setCardTime, cardTime}) => {
 
   const {
     register,
@@ -16,8 +17,13 @@ export const Time = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunc = (data) => {
+  function onSubmitFunc(data) {
     console.log(data)
+    api.post("/times", data).then((res)=>{
+      setCardTime([...cardTime])
+      toast.success("Time cadastrado com sucesso!")
+    })
+    .catch((err) => toast(err))
   }
 
   return (
@@ -40,8 +46,8 @@ export const Time = () => {
               Cadastrar
             </button>
 
-          <Link to="/jogador">
-            <p className="button2">Deseja cadastrar jogadores?</p>
+          <Link to="/jogadores">
+            <p className="btnregister1" type="submit">Deseja cadastrar jogadores?</p>
           </Link>
         </Forms>
       </div>

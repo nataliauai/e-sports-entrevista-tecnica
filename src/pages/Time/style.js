@@ -11,11 +11,13 @@ export const DivTeam = styled.div`
   h1 {
     color: var(--color-primary);
     text-align: center;
-    margin: 20px 0;
+    padding-left: 20px;
+    margin:15px;
   }
 
   h3 {
     text-align: center;
+    font-size: 28px;
   }
 
   .contentTeam {
@@ -23,30 +25,6 @@ export const DivTeam = styled.div`
     width: 30%;
   }
 
-  .buttom1 {
-    background-color: var(--color-primary);
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    color: var(--color-grey0);
-    border-radius: 4px;
-    width: 92%;
-    height: 40px;
-    margin: 25px 13px;
-  }
-
-  .buttom2 {
-    background-color: var(--color-grey1);
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    color: var(--color-grey0);
-    border-radius: 4px;
-    width: 92%;
-    height: 40px;
-    margin: 25px 13px;
-    padding-top: 10px;
-  }
   .account {
     text-align: center;
   }
@@ -54,6 +32,23 @@ export const DivTeam = styled.div`
     margin-left: 10px;
     color: var(--color-grey1);
     font-size: 12px;
+  }
+  .btnregister {
+    width: 260px;
+    height: 40px;
+    background-color: var(--color-grey1);
+    margin: 20px;
+    color: white;
+    text-align: center;
+  }
+  .btnregister1 {
+    width: 260px;
+    height: 40px;
+    background-color: var(--color-grey1);
+    margin: 20px;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
   }
 
   @media (max-width: 700px) {

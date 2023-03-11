@@ -2,9 +2,6 @@
 
 Essa aplicação foi desenvolvida para teste técnico da empresa NDM. Uma aplicação de e-spots
 
-# Documentação da API
-
-Para documentação completa acesse: https://
 
 ## Tabela de Conteúdos
 
@@ -74,27 +71,19 @@ cp .env.example .env
 
 Configure suas variáveis de ambiente com suas credenciais do Postgres e uma nova database da sua escolha.
 
-## 5 - Migrations
 
-Execute as migrations com o comando:
+## 5 - Endpoints
 
-```
-yarn typeorm migration:run -d src/data-source.ts
-```
-
----
-
-## 6 - Endpoints
-
+- [/] - Landing page com todos os dados cadastrados
 - [/jogador]
-    - [POST   - /jogador](Criação de jogador)
-    - [GET    - /jogador](Listar os jogadores)
-	- [GET    - /jogador/:id](Listar joagor)
-	- [PATH   - /jogador/:id](Atualizar jogador)
-	- [DELETE - /jogador/:id](Deletar jogador)
+    - [POST   - /jogadores](Criação de jogador)
+    - [GET    - /jogadores](Listar os jogadores)
+	- [GET    - /jogadores/:id](Listar jogagor)
+	- [DELETE - /jogadores/:id](Deletar jogador)
 - [/time]
-    - [GET    - /jobs](Listar times)
-	- [GET    - /jobs/companies/:id](Listar jogadores por time)
+	- [POST	  - /times](Criar times)
+    - [GET    - /times](Listar times)
+	- [GET    - /times/:id](Listar time específico)
 	- [PATH   - /jobs/:id](Atualizar time)
 	- [DELETE - /jobs/:id](Deletar time)
 
@@ -107,8 +96,8 @@ O objeto Jogador é definido como:
 | Campo      | Tipo   | Descrição                                     		|
 | -----------|--------|-----------------------------------------------------|
 | id         | inteiro| Identificador único do jogador                  	|
-| nome       | string | O nome do jogador.                              	|
-| idade      | string | A idade do jogador.                             	|
+| name       | string | O nome do jogador.                              	|
+| age      	 | string | A idade do jogador.                             	|
 | time_id    | string | O time que o jogador pertence                    	|
 
 ##  **time**
@@ -118,7 +107,7 @@ O objeto Jogador é definido como:
 | Campo      | Tipo   | Descrição                                     		|
 | -----------|--------|-----------------------------------------------------|
 | id         | inteiro| Identificador único do time.                     	|
-| nome       | string | O nome do time.                              	|
+| name       | string | O nome do time.                              		|
 
 
 ### Possíveis Erros:

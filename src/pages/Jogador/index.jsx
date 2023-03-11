@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { Div } from "./style";
 import { schema } from "./schema";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 
-export const Jogador = () => {
+export const Jogador = ({setCardJogador, cardJogador}) => {
   
   const {
     register,
@@ -16,8 +18,13 @@ export const Jogador = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
+  function onSubmit(data) {
     console.log(data)
+    api.post("/jogadores", data).then((res)=>{
+      setCardJogador([...cardJogador])
+      toast.success("Jogador cadastrado com sucesso!")
+    })
+    .catch((err) => toast(err))
   }
 
   return (
@@ -32,8 +39,10 @@ export const Jogador = () => {
           </header>
 
           <Forms onSubmit={handleSubmit(onSubmit)}>
+            <h1 className="title1">Cadastro de jogadores</h1>
             <label htmlFor="name">Nome</label>
-            <input id="name" type="text" placeholder="Digite o nome do jogador..."{...register("name")} />
+            <input id="name" type="text" placeholder="Digite o nome do jogador..."
+            {...register("name")} />
             <p className="error">{errors.name?.message}</p>
 
             <label htmlFor="age">Idade</label>
@@ -45,10 +54,13 @@ export const Jogador = () => {
             />
             <p className="error">{errors.age?.message}</p>
 
-            <label htmlFor="team">Selecionar Time</label>
-            <select id="team" {...register("team")}>
-              <option value="">Opção 1 </option>
-            </select>
+            <label htmlFor="time_id">ID do seu Time</label>
+            <input
+              id="time_id"
+              type="text"
+              placeholder="Digite a idade do jogador"
+              {...register("time_id")}
+            />
             <p className="error">{errors.team?.message}</p>
 
             <button className="btnregister" type="submit">
