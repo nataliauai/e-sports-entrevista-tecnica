@@ -14,7 +14,6 @@ export const Forms = styled.form`
   select {
     background-color: #EEEE;
     border: none;
-    color: var(--color-grey0);
     margin: 10px;
     padding: 20px;
     font-size: 16px;

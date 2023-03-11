@@ -7,9 +7,9 @@ import { Div } from "./style";
 import { schema } from "./schema";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import Header from "../../components/Header";
 
-export const Jogador = ({setCardJogador, cardJogador}) => {
-  
+export const Jogador = ({ setCardJogador, cardJogador }) => {
   const {
     register,
     handleSubmit,
@@ -19,16 +19,19 @@ export const Jogador = ({setCardJogador, cardJogador}) => {
   });
 
   function onSubmit(data) {
-    console.log(data)
-    api.post("/jogadores", data).then((res)=>{
-      setCardJogador([...cardJogador])
-      toast.success("Jogador cadastrado com sucesso!")
-    })
-    .catch((err) => toast(err))
+    console.log(data);
+    api
+      .post("/jogadores", data)
+      .then((res) => {
+        setCardJogador([...cardJogador]);
+        toast.success("Jogador cadastrado com sucesso!");
+      })
+      .catch((err) => toast(err));
   }
 
   return (
     <>
+      <Header/>
       <Div>
         <div className="contentCadastro">
           <header>
@@ -41,8 +44,12 @@ export const Jogador = ({setCardJogador, cardJogador}) => {
           <Forms onSubmit={handleSubmit(onSubmit)}>
             <h1 className="title1">Cadastro de jogadores</h1>
             <label htmlFor="name">Nome</label>
-            <input id="name" type="text" placeholder="Digite o nome do jogador..."
-            {...register("name")} />
+            <input
+              id="name"
+              type="text"
+              placeholder="Digite o nome do jogador..."
+              {...register("name")}
+            />
             <p className="error">{errors.name?.message}</p>
 
             <label htmlFor="age">Idade</label>

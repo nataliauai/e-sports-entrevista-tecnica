@@ -6,9 +6,9 @@ import { DivTeam } from "./style";
 import { schema } from "./schema";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import Header from "../../components/Header";
 
-export const Time = ({setCardTime, cardTime}) => {
-
+export const Time = ({ setCardTime, cardTime }) => {
   const {
     register,
     handleSubmit,
@@ -18,15 +18,19 @@ export const Time = ({setCardTime, cardTime}) => {
   });
 
   function onSubmitFunc(data) {
-    console.log(data)
-    api.post("/times", data).then((res)=>{
-      setCardTime([...cardTime])
-      toast.success("Time cadastrado com sucesso!")
-    })
-    .catch((err) => toast(err))
+    console.log(data);
+    api
+      .post("/times", data)
+      .then((res) => {
+        setCardTime([...cardTime]);
+        toast.success("Time cadastrado com sucesso!");
+      })
+      .catch((err) => toast(err));
   }
 
   return (
+    <>
+    <Header/>
     <DivTeam>
       <div className="contentLogin">
         <h1>E-SPORTS</h1>
@@ -43,14 +47,17 @@ export const Time = ({setCardTime, cardTime}) => {
           <p className="error">{errors.name?.message}</p>
 
           <button className="btnregister" type="submit">
-              Cadastrar
-            </button>
+            Cadastrar
+          </button>
 
           <Link to="/jogadores">
-            <p className="btnregister1" type="submit">Deseja cadastrar jogadores?</p>
+            <p className="btnregister1" type="submit">
+              Deseja cadastrar jogadores?
+            </p>
           </Link>
         </Forms>
       </div>
     </DivTeam>
+    </>
   );
 };
